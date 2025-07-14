@@ -1,0 +1,42 @@
+// 颜色变量
+$color-primary: #3A6B35; // 深绿色
+$color-secondary: #96BB7C; // 浅绿色
+$color-accent: #F4EAD5; // 米色
+$color-neutral: #616161; // 中性灰
+$color-light: #F9F9F9; // 浅色背景
+$color-dark: #2C3639; // 深色背景
+
+// 主题颜色映射
+$colors: (
+        primary: $color-primary,
+        secondary: $color-secondary,
+        accent: $color-accent,
+        neutral: $color-neutral,
+        light: $color-light,
+        dark: $color-dark
+);
+
+// 尺寸变量
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// 边框变量
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// 字体变量
+$font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+$font-mono: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+$font-size-base: 16px;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-xxl: 2rem;
+
+$line-height-base: 1.6;
+$line-height-heading: 1.2;

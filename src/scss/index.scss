@@ -1,0 +1,8 @@
+@use "abstracts/mixins";
+@use "abstracts/variables";
+
+/* Obsidian app */
+@use 'app/preview';
+
+/* Core plugins */
+@use 'plugins-core/canvas';
