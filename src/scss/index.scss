@@ -1,8 +1,55 @@
-@use "abstracts/mixins";
-@use "abstracts/variables";
+/* Variables */
+@use 'variables/root';
+@use 'variables/dynamic-color';
+@use 'variables/theme';
+@use 'variables/adaptive-font-size';
 
 /* Obsidian app */
+@use 'app/bases';
+@use 'app/editor';
+@use 'app/metadata';
 @use 'app/preview';
+@use 'app/ribbon-bar';
+@use 'app/startus-bar';
+@use 'app/tab-stacks';
+@use 'app/title-bar';
+@use 'app/window-frame';
+@use 'app/workspaces';
+
+/* Components */
+@use 'components/buttons';
+@use 'components/document-search';
+@use 'components/modals';
+@use 'components/popovers';
+@use 'components/progress-bars';
+@use 'components/tooltips';
+
+/* Content */
+@use 'content/blockquotes';
+@use 'content/callouts';
+@use 'content/checklists';
+@use 'content/code';
+@use 'content/embeds-transclusions';
+@use 'content/links';
+@use 'content/lists';
+@use 'content/preview-backlinks';
+@use 'content/pdf';
+@use 'content/tables';
+@use 'content/tags';
+@use 'content/text';
 
 /* Core plugins */
+@use 'plugins-core/backlinks-outlinks';
 @use 'plugins-core/canvas';
+@use 'plugins-core/file-explorer';
+@use 'plugins-core/prompt';
+@use 'plugins-core/publish';
+@use 'plugins-core/release-notes';
+@use 'plugins-core/search';
+@use 'plugins-core/sync';
+
+/* Community  plugins */
+@use 'plugins/style-settings';
+
+/* Style Settings (developments) */
+@use '../css/style-settings-definition.css';
