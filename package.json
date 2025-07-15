@@ -1,12 +1,10 @@
 {
   "name": "obsidian-garden-theme",
   "version": "0.0.1",
-  "description": "A nature-inspired theme for Obsidian",
+  "description": "A comfortable, distraction-free digital garden theme for writing, designed for Obsidian",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && node scripts/generate-manifest.js",
-    "preview": "vite preview",
-    "watch": "vite build --watch"
+    "dev": "cross-env NODE_ENV=development vite build --watch",
+    "build": "cross-env NODE_ENV=production vite build"
   },
   "repository": {
     "type": "git",
@@ -16,11 +14,13 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.0.13",
+    "@vitejs/plugin-legacy": "^7.0.0",
     "autoprefixer": "^10.4.21",
+    "cross-env": "^7.0.3",
     "fs-extra": "^11.3.0",
     "postcss": "^8.5.6",
-    "postcss-preset-env": "^10.2.4",
     "sass": "^1.89.2",
+    "terser": "^5.43.1",
     "typescript": "^5.8.3",
     "vite": "^7.0.4"
   },
