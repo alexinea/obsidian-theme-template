@@ -13,11 +13,11 @@ export default defineConfig({
         cssCodeSplit: false,
         rollupOptions: {
             input: {
-                theme: resolve(__dirname, 'src/scss/index.scss'),
+                theme: resolve(__dirname, 'src/scss/index.scss')
             },
             output: {
-                assetFileNames: isProduction ? 'main.min.css' : 'main.css',
-            },
+                assetFileNames: isProduction ? 'main.min.css' : 'main.css'
+            }
         },
         minify: isProduction ? 'terser' : false,
         terserOptions: {
@@ -27,52 +27,7 @@ export default defineConfig({
         }
     },
     plugins: [
-        // 1, CSS Watcher
-        {
-            name: 'css-watcher',
-            apply: 'serve',
-            configureServer(server) {
-                const watchFiles = [
-                    resolve(__dirname, 'src/css/license.css'),
-                    resolve(__dirname, 'src/css/style-settings.css')
-                ];
-
-                watchFiles.forEach(file => {
-                    server.watcher.add(file);
-                });
-
-                // Watch the main CSS directory for changes
-                server.watcher.on('change', async (file) => {
-                    if(watchFiles.includes(file)){
-                        console.log(`🔄  CSS file changed: ${file}`);
-                        await new Promise(resolve => setTimeout(resolve, 100));
-                        server.config.plugins.forEach(plugin => {
-                            if(plugin.name === 'css-combiner' && plugin.writeBundle) {
-                                // @ts-ignore
-                                plugin.writeBundle();
-                            }
-                        });
-                    }
-                });
-
-
-                server.watcher.on('change', async (file) => {
-                    if (file.endsWith('.css')) {
-                        console.log(`🔄  CSS file changed: ${file}`);
-                        await new Promise(r => setTimeout(r, 100));
-                        for (const plugin of server.config.plugins) {
-                            if (plugin.name === 'css-combiner' && plugin.writeBundle) {
-                                // @ts-ignore
-                                await plugin.writeBundle();
-                                break; // Only need to call writeBundle once
-                            }
-                        }
-                    }
-                });
-            }
-        },
-
-        // 2, CSS Combiner
+        // 1, CSS Combiner
         {
             name: 'css-combiner',
             enforce: 'post',
@@ -84,8 +39,14 @@ export default defineConfig({
                     resolve(__dirname, 'src/css/license.css'),
                     resolve(__dirname, 'src/css', tempCssFile),
                     resolve(__dirname, 'src/css/plugin-compatibility.css'),
-                    resolve(__dirname, 'src/css/style-settings.css'),
                 ];
+
+                if (isProduction) {
+                    console.log(`Included files for production: ${filesToCombine.map(f => basename(f)).join(', ')} and 🏷️style-settings-definition.css`);
+                    filesToCombine.push(resolve(__dirname, 'src/css/style-settings-definition.css'));
+                }else{
+                    console.log(`Included files for development: ${filesToCombine.map(f => basename(f)).join(', ')}`);
+                }
 
                 let combinedContent = '';
                 for (const file of filesToCombine) {
@@ -100,7 +61,7 @@ export default defineConfig({
                 await ensureDir(resolve(__dirname, outputDir));
                 await writeFile(resolve(__dirname, `${outputDir}/theme.css`), combinedContent, 'utf-8');
 
-                console.log('✅  CSS files combined successfully!');
+                console.log('✅  CSS files combined successfully!  --> ' + resolve(__dirname, `${outputDir}/theme.css`));
 
                 if (isProduction) {
                     generateManifest();
@@ -108,7 +69,7 @@ export default defineConfig({
             },
         },
 
-        // 3, CSS Minifier
+        // 2, CSS Minifier
         isProduction ? require('@vitejs/plugin-legacy')({
             renderLegacyChunks: false,
             modernPolyfills: false,
@@ -123,13 +84,13 @@ export default defineConfig({
             ],
         }
     },
-    // server: {
-    //     watch: {
-    //         usePolling: true,
-    //     },
-    //     port: 3000,
-    //     open: false
-    // },
+    server: {
+        watch: {
+            usePolling: true,
+        },
+        port: 3000,
+        open: false
+    },
 });
 
 function generateManifest() {
