@@ -1,5 +1,5 @@
 {
-  "name": "obsidian-garden-theme",
+  "name": "obsidian-theme-template",
   "version": "0.0.1",
   "description": "A comfortable, distraction-free digital garden theme for writing, designed for Obsidian",
   "scripts": {
@@ -8,7 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/obsidian-fine-tune/obsidian-garden-theme.git"
+    "url": "https://github.com/alexinea/obsidian-theme-template.git"
+  },
+  "obsidian": {
+    "name": "Garden",
+    "author": "Alexinea",
+    "authorUrl": "https://github.com/alexinea",
+    "minAppVersion": "1.16.0"
   },
   "private": true,
   "devDependencies": {
