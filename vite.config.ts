@@ -197,7 +197,7 @@ function generateManifest() {
     const manifest = {
         'name': packageJson.obsidian?.name ?? packageJson.name,
         'version': packageJson.obsidian?.version ?? packageJson.version,
-        'minAppVersion': packageJson.obsidian?.minAppVersion ?? '1.16.0',
+        'minAppVersion': packageJson.obsidian?.minAppVersion ?? '1.0.0',
         'author': packageJson.obsidian?.author ?? '',
         'authorUrl': packageJson.obsidian.authorUrl ?? '',
     };

@@ -14,7 +14,7 @@
     "name": "<YOUR_THEME_NAME>",
     "author": "<YOUR_NAME>",
     "authorUrl": "<YOUR_GITHUB_PROFILE_URL>",
-    "minAppVersion": "1.16.0"
+    "minAppVersion": "1.0.0"
   },
   "private": true,
   "devDependencies": {
