@@ -1,19 +1,19 @@
 {
   "name": "obsidian-theme-template",
   "version": "0.0.1",
-  "description": "A comfortable, distraction-free digital garden theme for writing, designed for Obsidian",
+  "description": "<YOUR_THEME_DESCRIPTION>",
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite build --watch",
     "build": "cross-env NODE_ENV=production vite build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexinea/obsidian-theme-template.git"
+    "url": "<YOUR_GITHUB_REPOSITORY_URL>"
   },
   "obsidian": {
-    "name": "Garden",
-    "author": "Alexinea",
-    "authorUrl": "https://github.com/alexinea",
+    "name": "<YOUR_THEME_NAME>",
+    "author": "<YOUR_NAME>",
+    "authorUrl": "<YOUR_GITHUB_PROFILE_URL>",
     "minAppVersion": "1.16.0"
   },
   "private": true,
