@@ -48,8 +48,7 @@ package-lock.json
 # Obsidian Theme
 src/css/main.css
 src/css/main.min.css
-dist
-dist_dev
+test/theme.css
 
 # MSBuild Binary and Structured Log
 *.binlog
