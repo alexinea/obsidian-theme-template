@@ -90,7 +90,7 @@ export default defineConfig({
             name: 'css-combiner',
             enforce: 'post',
             async writeBundle() {
-                const outputDir = isProduction ? './' : 'dist';
+                const outputDir = isProduction ? './' : 'test';
                 const themeCssFile = isProduction ? 'main.min.css' : 'main.css';
 
                 const filesToCombine = [
