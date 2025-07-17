@@ -4,6 +4,14 @@ This is a theme template for Obsidian (https://obsidian.md).
 
 This template provides a starting point for creating your own Obsidian theme. It includes the necessary files and structure to help you get started quickly.
 
+## Highlights
+
+- 🪄 Built with Vite, supporting real-time preview of the template effects.
+- 💪 Supports the SCSS preprocessor, making it easy to write styles.
+- 🗃️ Modular styling for convenient design and maintenance.
+- 🫧 Supports the definition of information for the Style Settings plugin, automatically generating Style Settings configuration information in a modular way.
+- 🏷️ Supports automatic publishing by creating tags.
+
 ## Getting Started
 
 ![img.png](assets/use-this-template.png)
