@@ -22,8 +22,6 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-dist
-dist_dev
 
 # .NET Core
 project.lock.json
@@ -46,6 +44,12 @@ node_modules
 .DS_Store
 package-lock.json
 .idea
+
+# Obsidian Theme
+src/css/main.css
+src/css/main.min.css
+dist
+dist_dev
 
 # MSBuild Binary and Structured Log
 *.binlog
