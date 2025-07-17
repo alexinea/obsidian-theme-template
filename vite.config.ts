@@ -90,7 +90,7 @@ export default defineConfig({
             name: 'css-combiner',
             enforce: 'post',
             async writeBundle() {
-                const outputDir = isProduction ? 'dist' : 'dist_dev';
+                const outputDir = isProduction ? './' : 'dist';
                 const themeCssFile = isProduction ? 'main.min.css' : 'main.css';
 
                 const filesToCombine = [
@@ -203,7 +203,7 @@ function generateManifest() {
     };
 
     writeFileSync(
-        resolve(__dirname, 'dist/manifest.json'),
+        resolve(__dirname, './manifest.json'),
         JSON.stringify(manifest, null, 2),
         'utf-8'
     );
