@@ -31,10 +31,11 @@ This template provides a starting point for creating your own Obsidian theme. It
 6. **Build the theme**: Run `npm run build` to compile your SCSS files into CSS. This will generate the final theme files in root directory.
 
 
-> Notes:
-> - During development, it is recommended to use the `npm run dev` command to preview theme changes in real-time.
-> - The Style Settings configuration adopts a modular design. Each module consists of a `.css.md` file and a directory with the same name. The directory contains a set of configuration files. This theme template supports dynamically reading these configurations during development and compilation, but the final definition information for delivery will be generated based on the order of file names. Therefore, you can add a numeric prefix to each Section.
-> - The Style Settings plugin does not support refreshing the configuration panel via hot - reload. You can reload the repository in Obsidian or restart Obsidian to view changes in the configuration panel.
+## Notes
+
+- During development, it is recommended to use the `npm run dev` command to preview theme changes in real-time.
+- The Style Settings configuration adopts a modular design. Each module consists of a `.css.md` file and a directory with the same name. The directory contains a set of configuration files. This theme template supports dynamically reading these configurations during development and compilation, but the final definition information for delivery will be generated based on the order of file names. Therefore, you can add a numeric prefix to each Section.
+- The Style Settings plugin does not support refreshing the configuration panel via hot - reload. You can reload the repository in Obsidian or restart Obsidian to view changes in the configuration panel.
 
 You can refer to more information in [the official documentation](https://docs.obsidian.md/Themes/App+themes/Build+a+theme)
 
