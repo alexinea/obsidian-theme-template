@@ -41,6 +41,12 @@ export default defineConfig({
 
                 try {
                     const sourceDirSeg = 'src/css/style-settings';
+
+                    if (!await pathExists(resolve(__dirname, sourceDirSeg))) {
+                        console.warn(`⚠️  Source directory for Style Settings definition files not found: ${sourceDirSeg}`);
+                        return;
+                    }
+
                     const entries = await readdir(resolve(__dirname, sourceDirSeg), {withFileTypes: true});
                     const sectionDirectories = entries.filter(e => e.isDirectory()).map(d => d.name).sort();
 
