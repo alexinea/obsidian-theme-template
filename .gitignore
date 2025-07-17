@@ -22,6 +22,8 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+dist
+dist_dev
 
 # .NET Core
 project.lock.json
@@ -42,6 +44,8 @@ ScaffoldingReadMe.txt
 CodeCoverage/
 node_modules
 .DS_Store
+package-lock.json
+.idea
 
 # MSBuild Binary and Structured Log
 *.binlog
