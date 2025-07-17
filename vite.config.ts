@@ -42,23 +42,23 @@ export default defineConfig({
                 try {
                     const sourceDirSeg = 'src/css/style-settings';
                     const entries = await readdir(resolve(__dirname, sourceDirSeg), {withFileTypes: true});
-                    const sectionDirectories = entries.filter(e => e.isDirectory()).map(d => d.name);
+                    const sectionDirectories = entries.filter(e => e.isDirectory()).map(d => d.name).sort();
 
                     watchedStyleSettingDefinitionFiles = [];
                     let monitoringCounter = 0;
 
                     for (const section of sectionDirectories) {
-                        const sectionDefinition = resolve(__dirname, sourceDirSeg, `${section}.css.md`);
+                        const sectionTitleDefinition = resolve(__dirname, sourceDirSeg, `${section}.css.md`);
 
-                        if (!await pathExists(sectionDefinition)) {
-                            console.warn(`⚠️  Section definition file not found: ${sectionDefinition}`);
+                        if (!await pathExists(sectionTitleDefinition)) {
+                            console.warn(`⚠️  Section definition file not found: ${sectionTitleDefinition}`);
                             continue;
                         }
 
-                        watchedStyleSettingDefinitionFiles.push(sectionDefinition);
+                        watchedStyleSettingDefinitionFiles.push(sectionTitleDefinition);
                         monitoringCounter++;
 
-                        const sectionMdFiles = (await readdir(resolve(__dirname, sourceDirSeg, section))).filter(f => f.endsWith('.css.md'));
+                        const sectionMdFiles = (await readdir(resolve(__dirname, sourceDirSeg, section))).filter(f => f.endsWith('.css.md')).sort();
                         for (const mdFile of sectionMdFiles) {
                             const path = resolve(__dirname, sourceDirSeg, section, mdFile);
                             watchedStyleSettingDefinitionFiles.push(path);
