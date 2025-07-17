@@ -23,6 +23,7 @@ This template provides a starting point for creating your own Obsidian theme. It
    - Open `package.json` and fill in basic information such as the theme name, author, and description.
    - Open `src/css/license.css` and fill in the theme's license information.
    - If necessary, update the version information in `versions.json`.  
+   - Finally, remember to modify the files under .github/ISSUE_TEMPLATE.
 5. **Develop your theme**: Start modifying the CSS files in the `src/scss` directory to create your custom theme.
    - Use the `npm run dev` command to start the development server, so you can preview your theme changes in real-time.
    - Create a symbolic link to map the `test` directory to the `themes` directory in your Obsidian Vault for testing your theme in Obsidian.
