@@ -1,5 +1,7 @@
+# 🧠 interface-a
+
 id: interface-a
-title: Interface A Settings
+title: Interface Ab Settings
 type: heading
 level: 2
 collapsed: true

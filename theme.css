@@ -12,7 +12,7 @@ Readme:
 
 MIT License
 
-Copyright (c) 2020-2024 Alex Lewis (@<YOUR_GITHUB_ID>)
+Copyright (c) 2020-2024 <YOUR NAME or YOUR ORGANIZATION> (@<YOUR_GITHUB_ID>)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -50,17 +50,18 @@ community:
 
 /* style-settings-definition.css */
 /* @settings
+
 name: Garden
 id: garden-style
 settings:
+
+# 🧠 interface-a
 	-
-		id: interface-a
-		title: Interface A Settings
+		title: Interface Ab Settings
 		type: heading
 		level: 2
 		collapsed: true
 	-
-		id: code-keyword
 		title: "Syntax: keywords"
 		description: Syntax highlighting for keywords
 		type: variable-themed-color
@@ -68,47 +69,49 @@ settings:
 		default-light: '#'
 		default-dark: '#'
 	-
-		id: interface-b
 		title: Interface B Settings
 		type: heading
 		level: 2
 		collapsed: true
 	-
-		id: interface-c
 		title: Interface C Settings
 		type: heading
 		level: 2
 		collapsed: true
+
 */
 
 /* @settings
+
 name: Garden Advanced Settings
 id: garden-advanced
 settings:
+
 	-
-		id: interface-d
 		title: Interface D Settings
 		type: heading
 		level: 2
 		collapsed: true
+
 */
 
 /* @settings
+
 name: Garden Community Plugins Settings
 id: garden-community-plugins
 settings:
+
 	-
-		id: interface-e
 		title: Interface E Settings
 		type: heading
 		level: 2
 		collapsed: true
 	-
-		id: interface-f
 		title: Interface F Settings
 		type: heading
 		level: 2
 		collapsed: true
+
 */
 
 

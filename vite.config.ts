@@ -1,6 +1,6 @@
 import {defineConfig} from "vite";
-import {resolve, basename} from "path";
-import {writeFile, ensureDir, pathExists} from 'fs-extra';
+import {basename, resolve} from "path";
+import {ensureDir, pathExists, writeFile} from 'fs-extra';
 import {readFileSync, writeFileSync} from "fs";
 import {readdir, readFile} from "fs/promises";
 
@@ -180,22 +180,59 @@ async function generateStyleSettings(): Promise<[number, number]> {
 
         for (const mdFile of sectionMdFiles) {
             const path = resolve(__dirname, sourceDirSeg, section, mdFile);
-            const fileContent = await readFile(path, 'utf-8');
-
-            const lines = fileContent.split('\n').map(l => {
-                return l.trim() === '' ? '\t-' : `\t\t${l}`;
-            });
-
-            sectionMdContent += '\t-\n' + lines.join('\n') + '\n';
+            const lines = await processStyleSettingsDefinitionFileLines(path);
+            sectionMdContent += lines.join('\n') + '\n';
             sectionMdFileCounter++;
         }
 
-        combinedContent += `/* @settings\n${sectionTitleContent}\nsettings:\n${sectionMdContent}*/\n\n`;
+        combinedContent += `/* @settings\n\n${sectionTitleContent}\nsettings:\n\n${sectionMdContent}\n*/\n\n`;
     }
 
     await writeFile(outputFile, combinedContent, 'utf-8');
 
     return [sectionTitleCounter, sectionMdFileCounter];
+}
+
+async function processStyleSettingsDefinitionFileLines(path: string): Promise<string[]> {
+    const content = await readFile(path, 'utf-8');
+    const lines = content.split('\n');
+    let lastLineWasEmpty = false;
+
+    // process lines starting with # or spaces followed by #
+    const firstLine = lines[0];
+    if(!/^\s*#/.test(firstLine) && firstLine.trim() !== '') {
+        lines.unshift('');
+    }
+
+    const processedLines = lines.map((line, index) => {
+        const trimmedLine = line.trim();
+
+        // process lines starting with # or spaces followed by #
+        if (/^\s*#/.test(line)) {
+            return line;
+        }
+
+        // process empty lines or lines with only spaces
+        if (trimmedLine === '') {
+            // mark current line as empty
+            // do not process immediately, wait for subsequent checks
+            lastLineWasEmpty = true;
+            return null;
+        }
+
+        // process previous line was empty
+        if (lastLineWasEmpty) {
+            lastLineWasEmpty = false;
+            // insert \t- as the last line of consecutive empty lines
+            return '\t-';
+        }
+
+        // process other lines
+        return `\t\t${line}`;
+    });
+
+    // filter out null values in the middle
+    return processedLines.filter(line => line !== null);
 }
 
 function generateManifest() {
