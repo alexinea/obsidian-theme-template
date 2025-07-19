@@ -39,6 +39,30 @@ This template provides a starting point for creating your own Obsidian theme. It
 
 You can refer to more information in [the official documentation](https://docs.obsidian.md/Themes/App+themes/Build+a+theme)
 
+## Style Settings
+
+The Style Settings plugin allows snippet, theme, and plugin CSS files to define a set of configuration options. It then allows users to see all the tweakable settings in one settings pane. Style Settings allows both toggling classes on and off the body element, as well as setting numeric, string, and color CSS variables.
+
+For more information on how to use Style Settings, please refer to [the official documentation](https://github.com/mgmeyers/obsidian-style-settings).
+
+### Style Settings Definition
+
+![Style Settings Definition](assets/style-settings-definition-files.png)
+
+The image above shows the relationship between the Style Settings interface and the Style Settings definition files.
+
+Theme designers and developers can fully utilize the `section.css.md file` and the configuration files in its identically named folder to modularly define the Style Settings interface, with only the sorting order of the files needing to be noted.
+
+- You can use `#` as a comment. These comments will be included in `src/css/style-settings-definition.css`, and the Style Settings plugin will handle them correctly.
+
+- You can also use `;` as a comment. These comments will be ignored when building `style-settings-definition.css`. You can make full use of this type of comment to improve the readability and maintainability of the definition files.
+
+By using Style Settings Definition, you can avoid directly writing lengthy Style Settings CSS information.
+
+In some theme project files, designers and developers may append adjustments to the Style Settings plugin interface under the Style Settings CSS information. I recommend placing these fine-tuning CSS snippets in `src/scss/plugins/style-settings.scss` to avoid being accidentally removed during automatic builds.
+
+Remember, the style fine-tuning code for third-party plugins needs to be imported in `src/scss/index.scss` to ensure that they are correctly compiled into `theme.css`.
+
 ## Q&A
 
 ### Why can't my theme use HMR?
