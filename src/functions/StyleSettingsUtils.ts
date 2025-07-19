@@ -4,12 +4,12 @@ import {pathExists, writeFile} from "fs-extra";
 
 async function processStyleSettingsDefinitionFileLines(path: string): Promise<string[]> {
     const content = await readFile(path, 'utf-8');
-    const lines = content.split('\n');
+    const lines = removeComments(content.split('\n'));
     let lastLineWasEmpty = false;
 
     // process lines starting with # or spaces followed by #
     const firstLine = lines[0];
-    if (!/^\s*#/.test(firstLine) && firstLine.trim() !== '') {
+    if (!/^[ \t]*#/.test(firstLine) && firstLine.trim() !== '') {
         lines.unshift('');
     }
 
@@ -17,7 +17,7 @@ async function processStyleSettingsDefinitionFileLines(path: string): Promise<st
         const trimmedLine = line.trim();
 
         // process lines starting with # or spaces followed by #
-        if (/^\s*#/.test(line)) {
+        if (/^[ \t]*#/.test(line)) {
             return line;
         }
 
@@ -42,6 +42,10 @@ async function processStyleSettingsDefinitionFileLines(path: string): Promise<st
 
     // filter out null values in the middle
     return processedLines.filter(line => line !== null);
+}
+
+function removeComments(lines: string[]): string[] {
+    return lines.filter(line => !/^[ \t]*;/.test(line));
 }
 
 export async function generateStyleSettings(srcDir: string, outputFile: string): Promise<[number, number]> {

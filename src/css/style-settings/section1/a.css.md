@@ -1,5 +1,7 @@
 # 🧠 interface-a
+; interface-a with comment
 
+    ; start with a semicolon
 id: interface-a
 title: Interface Ab Settings
 type: heading
