@@ -4,7 +4,8 @@
   "description": "<YOUR_THEME_DESCRIPTION>",
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite build --watch",
-    "build": "cross-env NODE_ENV=production vite build"
+    "build": "cross-env NODE_ENV=production vite build",
+    "version": "tsx version-bump.ts"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,8 @@
     "sass": "^1.89.2",
     "terser": "^5.43.1",
     "typescript": "^5.8.3",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "tsx": "^4.7.4"
   },
   "browserslist": [
     "last 2 versions",
