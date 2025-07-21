@@ -91,7 +91,7 @@ export default defineConfig({
                 if (isProduction) {
                     generateManifest(
                         resolve(__dirname, 'package.json'),     // Package file path
-                        resolve(__dirname, './manifest.json')   // Manifest file path
+                        resolve(__dirname, 'manifest.json')     // Manifest file path
                     );
                 }
             },
